@@ -31,7 +31,7 @@ public class BlogPostParser {
         String line;
         try{
             while((line = reader.readLine()) != null){
-
+                builder.append(line);
             }
         }
         catch(IOException error){
