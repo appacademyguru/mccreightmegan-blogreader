@@ -22,6 +22,6 @@ public class BlogActivity extends Activity {
         listView = (ListView)findViewById(R.id.listView);
         listView.setEmptyView(progressBar);
 
-        new BlogPostTask().execute();
+        new BlogPostTask().execute(this);
     }
 }
