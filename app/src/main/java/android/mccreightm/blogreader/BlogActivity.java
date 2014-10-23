@@ -29,6 +29,7 @@ public class BlogActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("BlogActivity", "Title: " + BlogPostParser.get().posts.get(position).title);
+
 //                String url = BlogPostParser.get().posts.get(position).url;
             }
         });
