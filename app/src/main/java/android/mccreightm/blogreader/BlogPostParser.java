@@ -58,7 +58,10 @@ public class BlogPostParser {
                 JSONObject post = jsonPosts.getJSONObject(index);
                 String title = post.getString("title");
                 String url = post.getString("url");
-                BlogPost blogPost = new BlogPost(title, url);
+                String author = post.getString("author");
+                String date = post.getString("date");
+                String thumbnail = post.getString("thumbnail");
+                BlogPost blogPost = new BlogPost(title, url, author, date, thumbnail);
                 posts.add(blogPost);
             }
         }
