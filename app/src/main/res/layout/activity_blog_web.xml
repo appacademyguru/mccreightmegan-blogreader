@@ -7,5 +7,11 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
     />
+    <ProgressBar
+        android:id="@+id/webprogressBar"
+        android:layout_width="300px"
+        android:layout_height="300px"
+        android:layout_centerInParent="true"
+        />
 
 </LinearLayout>
