@@ -1,5 +1,6 @@
 package android.mccreightm.blogreader;
 
+import android.text.Html;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -56,10 +57,11 @@ public class BlogPostParser {
 
             for(int index = 0; index < jsonPosts.length(); index++){
                 JSONObject post = jsonPosts.getJSONObject(index);
-                String title = post.getString("title");
+                String title = Html.fromHtml(post.getString("title")).toString();
                 String url = post.getString("url");
                 String author = post.getString("author");
-                String date = post.getString("date");
+                String olddate = post.getString("date");
+                String date = olddate.substring(0, olddate.indexOf(" "));
                 String thumbnail = post.getString("thumbnail");
                 BlogPost blogPost = new BlogPost(title, url, author, date, thumbnail);
                 posts.add(blogPost);

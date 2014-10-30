@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 
 import org.json.JSONObject;
@@ -20,7 +21,7 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject>{
         activity = activities[0];
         JSONObject jsonObject = null;
         try {
-            URL blogFeedURL = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=20");
+            URL blogFeedURL = new URL("http://blog.teamtreehouse.com/api/get_recent_summary/?count=40");
 
             HttpURLConnection connection = (HttpURLConnection)blogFeedURL.openConnection();
             connection.connect();
@@ -43,9 +44,9 @@ public class BlogPostTask extends AsyncTask<Activity, Void, JSONObject>{
     @Override
     protected void onPostExecute(JSONObject jsonObject) {
         BlogPostParser.get().readFeed(jsonObject);
-        ListView listView = (ListView)activity.findViewById(R.id.listView);
+        GridView gridView = (GridView)activity.findViewById(R.id.gridView);
 
-        BlogPostAdapter adapter = new BlogPostAdapter(activity, android.R.layout.simple_list_item_1, BlogPostParser.get().posts);
-        listView.setAdapter(adapter);
+        BlogPostAdapter adapter = new BlogPostAdapter(activity, BlogPostParser.get().posts);
+        gridView.setAdapter(adapter);
     }
 }

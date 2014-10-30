@@ -10,7 +10,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class BlogPostAdapter extends ArrayAdapter<BlogPost>{
-    public BlogPostAdapter(Context context, int simple_list_item_1, ArrayList<BlogPost> posts) {
+    public BlogPostAdapter(Context context, ArrayList<BlogPost> posts) {
         super(context, 0, posts);
     }
 
@@ -25,6 +25,8 @@ public class BlogPostAdapter extends ArrayAdapter<BlogPost>{
         title.setText(post.title);
         TextView  author= (TextView)convertView.findViewById(R.id.author);
         author.setText(post.author);
+        TextView date = (TextView)convertView.findViewById(R.id.date);
+        date.setText(post.date);
 
         return convertView;
     }

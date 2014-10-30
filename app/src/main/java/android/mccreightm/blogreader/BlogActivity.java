@@ -7,24 +7,24 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
+import android.widget.GridView;
 import android.widget.ProgressBar;
 
 
 public class BlogActivity extends Activity {
 
     protected ProgressBar progressBar;
-    protected ListView listView;
+    protected GridView gridView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blog);
 
         progressBar = (ProgressBar)findViewById(R.id.progressBar);
-        listView = (ListView)findViewById(R.id.listView);
-        listView.setEmptyView(progressBar);
+        gridView = (GridView)findViewById(R.id.gridView);
+        gridView.setEmptyView(progressBar);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i("BlogActivity", "Title: " + BlogPostParser.get().posts.get(position).title);
