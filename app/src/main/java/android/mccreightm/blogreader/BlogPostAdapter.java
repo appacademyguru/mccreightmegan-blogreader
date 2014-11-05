@@ -33,10 +33,10 @@ public class BlogPostAdapter extends ArrayAdapter<BlogPost>{
             new DownloadImageTask(thumbnail).execute(post.thumbnail);
             TextView title = (TextView) convertView.findViewById(R.id.title);
             title.setText(post.title);
-            TextView author = (TextView) convertView.findViewById(R.id.author);
-            author.setText(post.author);
-            TextView date = (TextView) convertView.findViewById(R.id.date);
-            date.setText(post.date);
+//            TextView author = (TextView) convertView.findViewById(R.id.author);
+//            author.setText(post.author);
+//            TextView date = (TextView) convertView.findViewById(R.id.date);
+//            date.setText(post.date);
 
         return convertView;
     }
